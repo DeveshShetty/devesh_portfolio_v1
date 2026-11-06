@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-06T00:00:00Z",
+  "title": "Design System: Devesh Shetty Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "radium-green-night": { "role": "primary", "displayName": "Radium Green", "canonical": "hsl(140 78% 68%)", "tonalRamp": ["#0a3a1d", "#0f5a2e", "#15803f", "#1fa856", "#3fd075", "#6eed98", "#a4f5c0", "#d6fbe3"] },
+      "radium-green-day": { "role": "primary", "displayName": "Radium Green (day)", "canonical": "hsl(150 80% 20%)", "tonalRamp": ["#04301a", "#074526", "#0a5c33", "#118048", "#1fa862", "#4dc88a", "#8fe0b6", "#cdf2e0"] },
+      "caution-amber": { "role": "secondary", "displayName": "Caution Amber", "canonical": "hsl(41 100% 52%)", "tonalRamp": ["#4a3000", "#7a5000", "#a87000", "#d69000", "#ffb10a", "#ffc54d", "#ffdb94", "#fff0d1"] },
+      "panel-night": { "role": "neutral", "displayName": "Graphite Panel", "canonical": "hsl(200 9% 6%)", "tonalRamp": ["#0b0d0e", "#0e1011", "#151819", "#1e2224", "#323739", "#6d787e", "#a3aea8", "#eaebe5"] },
+      "panel-day": { "role": "neutral", "displayName": "Daylight Panel", "canonical": "hsl(80 9% 86%)", "tonalRamp": ["#121517", "#42494d", "#545e63", "#a5a99e", "#c3c7bd", "#dcdfd8", "#ebede8", "#f6f7f3"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Name Plate", "purpose": "Hero name only." },
+      "headline": { "displayName": "Section Heading", "purpose": "One per section, condensed uppercase." },
+      "title": { "displayName": "Placard Title", "purpose": "Role titles, project plates, sheet titles." },
+      "body": { "displayName": "Body", "purpose": "Explanatory copy at 62-72ch." },
+      "label": { "displayName": "Placard Label", "purpose": "Nav, buttons, form labels, gauge captions." },
+      "readout": { "displayName": "Readout", "purpose": "Numbers, dates, tool tags in B612 Mono." }
+    },
+    "shadows": [
+      { "name": "panel-bevel", "value": "inset 0 1px 0 hsl(0 0% 100% / 0.06), 0 22px 36px -26px hsl(0 0% 0% / 0.85)", "purpose": "Panel surface: top highlight plus long tight drop." },
+      { "name": "lamp-button", "value": "0 8px 16px -8px hsl(0 0% 0% / 0.7)", "purpose": "Hero amber action." },
+      { "name": "needle-drop", "value": "feDropShadow dx 1.5 dy 2 blur 1.6 black 0.7", "purpose": "Gauge needle lift off the face." }
+    ],
+    "motion": [
+      { "name": "needle-spring", "value": "spring stiffness 34, damping 7.5, mass 1.2, delay 0.25s + 0.14s per gauge", "purpose": "Underdamped needle sweep with slight overshoot." },
+      { "name": "ease-reveal", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Section reveals, 0.55-0.6s." },
+      { "name": "cross-check-cycle", "value": "3400ms", "purpose": "Auto-advance of the active gauge until the visitor engages." },
+      { "name": "state-fast", "value": "200ms", "purpose": "Button lift, icon rotation, color changes." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" },
+      { "name": "2xl", "value": "1536px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Lamp Button",
+      "kind": "button",
+      "refersTo": "button-lamp",
+      "description": "The one lit action: amber fill, placard caps.",
+      "html": "<a class=\"ds-lamp\" href=\"#\">Email me</a>",
+      "css": ".ds-lamp { display: inline-flex; align-items: center; background: hsl(41 100% 52%); color: hsl(40 40% 8%); padding: 12px 24px; border-radius: 2px; font-family: 'Barlow Condensed', system-ui, sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; font-size: 1.125rem; text-decoration: none; box-shadow: 0 8px 16px -8px hsl(0 0% 0% / 0.7); transition: transform 200ms; } .ds-lamp:hover { transform: translateY(-2px); } .ds-lamp:focus-visible { outline: 2px solid hsl(41 100% 55%); outline-offset: 3px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action; inverts on hover.",
+      "html": "<a class=\"ds-outline\" href=\"#\">Resume</a>",
+      "css": ".ds-outline { display: inline-flex; align-items: center; border: 1px solid hsl(75 14% 91% / 0.4); color: hsl(75 14% 91%); padding: 12px 24px; border-radius: 2px; font-family: 'Barlow Condensed', system-ui, sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; font-size: 1.125rem; text-decoration: none; transition: background 150ms, color 150ms; } .ds-outline:hover { background: hsl(75 14% 91%); color: hsl(200 9% 6%); } .ds-outline:focus-visible { outline: 2px solid hsl(41 100% 55%); outline-offset: 3px; }"
+    },
+    {
+      "name": "Dimmer",
+      "kind": "nav",
+      "refersTo": "panel",
+      "description": "Night/Day segmented switch in the nav strip.",
+      "html": "<div class=\"ds-dimmer\" role=\"group\"><button aria-pressed=\"true\">Night</button><button aria-pressed=\"false\">Day</button></div>",
+      "css": ".ds-dimmer { display: inline-flex; height: 36px; overflow: hidden; border: 1px solid hsl(200 7% 21%); border-radius: 2px; } .ds-dimmer button { font-family: 'Barlow Condensed', system-ui, sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.875rem; padding: 0 10px; background: transparent; color: hsl(150 6% 66%); border: 0; } .ds-dimmer button[aria-pressed='true'] { background: hsl(75 14% 91%); color: hsl(200 9% 6%); } .ds-dimmer button:hover { color: hsl(75 14% 91%); } .ds-dimmer button[aria-pressed='true']:hover { color: hsl(200 9% 6%); } .ds-dimmer button:focus-visible { outline: 2px solid hsl(41 100% 55%); outline-offset: 3px; }"
+    },
+    {
+      "name": "Screwed Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Bevelled graphite plate with four corner screws.",
+      "html": "<div class=\"ds-panel\"><p class=\"ds-panel-title\">Approach plate</p><p class=\"ds-panel-body\">Muted summary text.</p></div>",
+      "css": ".ds-panel { position: relative; background: hsl(200 9% 9%); border: 1px solid hsl(200 7% 21%); border-radius: 4px; padding: 32px; color: hsl(75 14% 91%); box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.06), 0 22px 36px -26px hsl(0 0% 0% / 0.85); } .ds-panel::before { content: ''; position: absolute; inset: 0; pointer-events: none; --s: radial-gradient(circle, hsl(200 6% 80%) 0 2.2px, hsl(200 6% 32%) 2.6px 3.4px, transparent 3.8px); background: var(--s) 10px 10px / 8px 8px no-repeat, var(--s) calc(100% - 10px) 10px / 8px 8px no-repeat, var(--s) 10px calc(100% - 10px) / 8px 8px no-repeat, var(--s) calc(100% - 10px) calc(100% - 10px) / 8px 8px no-repeat; } .ds-panel-title { margin: 0; font-family: 'Barlow Condensed', system-ui, sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; font-size: 1.5rem; } .ds-panel-body { margin: 12px 0 0; color: hsl(150 6% 66%); font-family: Barlow, system-ui, sans-serif; line-height: 1.625; }"
+    },
+    {
+      "name": "Tool Chip",
+      "kind": "chip",
+      "refersTo": "tool-chip",
+      "description": "Mono tag with hairline border.",
+      "html": "<span class=\"ds-chip\">PySpark</span>",
+      "css": ".ds-chip { display: inline-block; border: 1px solid hsl(200 7% 21%); border-radius: 2px; padding: 4px 10px; font-family: 'B612 Mono', ui-monospace, monospace; font-size: 0.75rem; color: hsl(150 6% 66%); }"
+    },
+    {
+      "name": "Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Text input with placard label above.",
+      "html": "<label class=\"ds-label\" for=\"ds-f\">Your email</label><input id=\"ds-f\" class=\"ds-input\" type=\"email\" placeholder=\"you@company.com\">",
+      "css": ".ds-label { display: block; margin-bottom: 8px; font-family: 'Barlow Condensed', system-ui, sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.875rem; color: hsl(150 6% 66%); } .ds-input { width: 100%; box-sizing: border-box; background: hsl(200 9% 6%); color: hsl(75 14% 91%); border: 1px solid hsl(200 7% 46%); border-radius: 2px; padding: 12px; font-family: Barlow, system-ui, sans-serif; caret-color: hsl(41 100% 52%); } .ds-input:focus { outline: none; border-color: hsl(75 14% 91%); } .ds-input:focus-visible { box-shadow: 0 0 0 2px hsl(41 100% 55%); }"
+    },
+    {
+      "name": "Gauge",
+      "kind": "custom",
+      "refersTo": "panel",
+      "description": "Static dial: steel bezel, dark face, ticks, green needle and mono readout.",
+      "html": "<svg class=\"ds-gauge\" viewBox=\"0 0 220 220\" width=\"180\" height=\"180\"><defs><linearGradient id=\"ds-steel\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#c9cdcf\"/><stop offset=\"0.5\" stop-color=\"#4d5356\"/><stop offset=\"1\" stop-color=\"#c9cdcf\"/></linearGradient></defs><circle cx=\"110\" cy=\"110\" r=\"108\" fill=\"url(#ds-steel)\"/><circle cx=\"110\" cy=\"110\" r=\"100\" fill=\"#0b0d0f\"/><path d=\"M 47 173 A 90 90 0 1 1 173 173\" fill=\"none\" stroke=\"#6eed98\" stroke-width=\"5\" opacity=\"0.85\"/><g transform=\"rotate(60 110 110)\"><path d=\"M 107.6 130 L 110 30 L 112.4 130 Z\" fill=\"#6eed98\"/></g><circle cx=\"110\" cy=\"110\" r=\"8\" fill=\"url(#ds-steel)\"/><text x=\"110\" y=\"144\" text-anchor=\"middle\" font-size=\"8.5\" letter-spacing=\"1.6\" fill=\"#ecede8\" opacity=\"0.7\" font-family=\"Barlow Condensed, sans-serif\">RECORDS</text><text x=\"110\" y=\"178\" text-anchor=\"middle\" font-size=\"19\" font-weight=\"700\" fill=\"#ecede8\" font-family=\"B612 Mono, monospace\">60M+</text></svg>",
+      "css": ".ds-gauge { display: block; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Night-Flight Six-Pack",
+    "overview": "A matte black-graphite cockpit panel with fine grain and four corner screws. The page reads as instruments cross-checking one another: each headline result is a round gauge with a radium-green needle on a near-black face, a terse placard cap underneath, and an evidence line that names its source. Below the hero the page continues as a flight log, an avionics stack, approach plates and a comms panel, all in the same panel material.\n\nThe system is calm and dense rather than loud. Type is condensed and uppercase where it labels or announces (placards), and plain humanist sans where it explains. Green is the live-data voice, amber is the one lit action, everything else is graphite and off-white. A DAY/NIGHT dimmer flips the panel to a pale daylight face with black markings; the instrument faces themselves stay dark in both modes.",
+    "keyCharacteristics": [
+      "Matte graphite panel, grain overlay on the whole page, hairline borders, 2-4px corners.",
+      "Placard lettering: Barlow Condensed, uppercase, 0.14em tracking.",
+      "Radium green for needles, live values and company/role accents; amber for lit actions.",
+      "Instrument faces (face, tick, needle) are mode-independent and always dark.",
+      "Motion is mechanical: an underdamped needle sweep and short ease-out reveals; reduced motion snaps to final state."
+    ],
+    "rules": [
+      { "name": "The One Lit Action Rule", "body": "Amber marks the thing the visitor should press or the single lamp that is on. It never fills decorative surfaces or large areas.", "section": "colors" },
+      { "name": "The Dark Dial Rule", "body": "Gauge face, ticks and needle do not follow the DAY/NIGHT switch. The panel around them changes; the instruments do not.", "section": "colors" },
+      { "name": "The Green Is Data Rule", "body": "Green means a measured value or the identity line, never a button fill.", "section": "colors" },
+      { "name": "The Placard Rule", "body": "Anything that labels, names or acts is Barlow Condensed uppercase at 0.14em. Anything that explains is Barlow sentence case.", "section": "typography" },
+      { "name": "The Numbers Are Mono Rule", "body": "Every figure, date range and tool tag is B612 Mono with tabular numerals.", "section": "typography" },
+      { "name": "The Lens, Not Halo Rule", "body": "Lamps and status dots are solid radial-gradient lenses. No outer glow.", "section": "elevation" },
+      { "name": "The Flat Between Panels Rule", "body": "Only panels and the primary action carry a shadow; sections, rows and chips are flat.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do letter every label, button, nav item and gauge caption in Barlow Condensed uppercase with 0.14em tracking.",
+      "Do set every number, date and tool tag in B612 Mono with tabular figures.",
+      "Do build new surfaces from `.panel`, hairline borders and 2-4px corners; use `.panel-screws` on larger plates.",
+      "Do show a source alongside any new headline figure, following the gauge evidence line.",
+      "Do keep instrument faces, ticks and needles dark in both panel modes.",
+      "Do honor `prefers-reduced-motion`: needles snap to value and transitions drop to 0.01ms."
+    ],
+    "donts": [
+      "Don't use amber for decoration or large fills; it is the lit action and the single lamp.",
+      "Don't use red; the destructive token exists but no surface uses it.",
+      "Don't add glow, halo or neon treatments to green, lamps or text.",
+      "Don't add eyebrow labels above headings, section numbers or gradient text.",
+      "Don't invent a third accent hue or round the panel corners past 4px.",
+      "Don't bring a headline-over-three-cards layout back into a section."
+    ]
+  }
+}
